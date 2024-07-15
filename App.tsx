@@ -1,6 +1,7 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, Text} from 'react-native';
 import FlatCards from './src/components/FlatCards';
+import Bottombar from './src/components/view/Bottombar';
 
 const App = () => {
   const images = [
@@ -16,7 +17,10 @@ const App = () => {
 
   return (
     <SafeAreaView>
-      <FlatCards imagesSrc={images} />
+      {/* <FlatCards imagesSrc={images} /> */}
+      {/* <Bottombar /> */}
+      <Bottombar />
+      {/* <Text>Hello from Phone</Text> */}
     </SafeAreaView>
   );
 };
