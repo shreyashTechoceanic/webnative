@@ -22,7 +22,7 @@ export default CreateClips;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'green',
+    // backgroundColor: 'green',
     display: 'flex',
     // flexDirection: 'row',
     alignItems: 'flex-end',
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
 
   icons: {
-    backgroundColor: 'yellow',
+    // backgroundColor: 'yellow',
     width: 237,
     display: 'flex',
     flexDirection: 'row',
