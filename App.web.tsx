@@ -3,6 +3,7 @@ import {SafeAreaView} from 'react-native';
 import FlatCards from './src/components/FlatCards';
 import Bottombar from './src/components/view/Bottombar';
 import CreateClips from './src/components/view/CreateClips';
+import Profile from './src/components/view/Profile';
 
 const App = () => {
   const images = [
@@ -20,7 +21,8 @@ const App = () => {
     <SafeAreaView>
       {/* <FlatCards imagesSrc={images} /> */}
       {/* <Bottombar /> */}
-      <CreateClips />
+      {/* <CreateClips /> */}
+      <Profile />
     </SafeAreaView>
   );
 };
