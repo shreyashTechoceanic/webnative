@@ -1,5 +1,5 @@
-import {TouchableOpacity} from 'react-native';
-import React from 'react';
+import {Modal, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
 import Home from '../../icons/Home.svg';
 import Flash from '../../icons/Flash.svg';
 import Create from '../../icons/Create.svg';
@@ -7,6 +7,7 @@ import Clips from '../../icons/Clips.svg';
 import Profile from '../../icons/Profile.svg';
 import Button from './Button';
 import BottombarIconsText from './BottombarIconsText';
+import CreateOptions from './CreateOptions';
 // import {homeHandleClick} from './logic/Logic';
 
 interface BottombarIconsTypes {
@@ -19,6 +20,8 @@ const BottombarIcons = ({random, homeHandleClick}: BottombarIconsTypes) => {
   //   console.log('homeHandleClick');
   //   return <Link to={/view}></Link>
   // };
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
     <>
@@ -42,7 +45,11 @@ const BottombarIcons = ({random, homeHandleClick}: BottombarIconsTypes) => {
         />
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => homeHandleClick('Create')}>
+      <TouchableOpacity
+        onPress={() => {
+          homeHandleClick('Create');
+          setIsModalVisible(true);
+        }}>
         <BottombarIconsText
           image={<Create width={16} height={16} />}
           text="Create"
@@ -62,6 +69,13 @@ const BottombarIcons = ({random, homeHandleClick}: BottombarIconsTypes) => {
           text={'profile'}
         />
       </TouchableOpacity>
+
+      <Modal
+        visible={isModalVisible}
+        animationType="slide"
+        onRequestClose={() => setIsModalVisible(false)}>
+        <CreateOptions />
+      </Modal>
 
       {/* <Button handlePress={homeHandleClick} /> */}
     </>

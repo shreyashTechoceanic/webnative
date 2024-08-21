@@ -1,5 +1,5 @@
 import {View, Text, StyleSheet, Dimensions, ScrollView} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import Icon from './Icon';
 import BackArrow from '../../icons/BackArrow.svg';
 import Settings from '../../icons/Settings.svg';
@@ -13,9 +13,13 @@ import HighlightsImage from '../../icons/HighlightsImage.svg';
 import Plus from '../../icons/Plus.svg';
 import Click from './Click';
 
-// const {height} = Dimensions.get('window');
-
 const Profile = () => {
+  const [isFollow, setIsFollow] = useState<boolean>(true);
+
+  const handleFollowClick = () => {
+    setIsFollow(prevState => !prevState);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.backArrow_settingMenu}>
@@ -44,14 +48,20 @@ const Profile = () => {
       <View>
         <View style={styles.buttons}>
           <Click
-            text={'Edit Profile'}
+            textOn={'Follow'}
+            textOff={'Following'}
             buttonStyle={styles.firstButton}
             textStyle={styles.firstText}
+            onPress={handleFollowClick}
+            status={isFollow}
           />
           <Click
-            text={'Share Profile'}
+            textOn={'Message '}
+            textOff={'Share Profile'}
             buttonStyle={styles.secondButton}
             textStyle={styles.secondText}
+            onPress={() => {}}
+            status={!isFollow}
           />
         </View>
       </View>
@@ -61,7 +71,6 @@ const Profile = () => {
           Keep your favorite stories on your profile
         </Text>
       </View>
-
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         <View style={styles.storiesHighlight}>
           <Story image={<HighlightsImage />} imageText={'London'} />
@@ -73,11 +82,7 @@ const Profile = () => {
           <Story image={<Plus />} imageText={'New'} />
         </View>
       </ScrollView>
-      <View
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}>
+      <View style={{display: 'flex', alignItems: 'center'}}>
         <MediaTabs />
       </View>
     </View>
@@ -88,83 +93,61 @@ export default Profile;
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: 'red',
-    // height: height,
     paddingVertical: 20,
     paddingHorizontal: 16,
-    // flex: 1,
+    gap: 20,
   },
-
   backArrow_settingMenu: {
-    // backgroundColor: 'green',
-    // display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-
   setting_menu: {
-    // backgroundColor: 'yellow',
     width: 55,
-    // display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-
   profileStats: {
-    // backgroundColor: 'pink',
-    // height: 39,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-
   bioLinkContainer: {
     gap: 6,
   },
-
   bio: {
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 16.37,
   },
-
   link: {
     fontSize: 12,
     fontWeight: '400',
     lineHeight: 16.37,
     color: '#0F4072',
   },
-
   highlight: {
-    // fontFamily: 'Nunito',
     fontSize: 16,
     fontWeight: '700',
     lineHeight: 21.82,
     letterSpacing: 0.5,
     color: '#303030',
   },
-
   highlightText: {
-    // fontFamily: 'Nunito'.
     fontSize: 12,
     fontWeight: '600',
     lineHeight: 16.37,
     color: '#303030B2',
   },
-
   storiesHighlight: {
     flexDirection: 'row',
     gap: 12,
   },
-
   buttons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // gap: 7,
   },
-
   firstButton: {
     width: 199,
     height: 40,
@@ -174,7 +157,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
   secondButton: {
     width: 122,
     height: 40,
@@ -185,14 +167,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderColor: '#303030',
   },
-
   firstText: {
     fontSize: 12,
     fontWeight: '500',
     lineHeight: 16.37,
     color: '#FFFFFF',
   },
-
   secondText: {
     fontSize: 12,
     fontWeight: '500',

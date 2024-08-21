@@ -4,6 +4,7 @@ import Test from './src/components/view/Test';
 // import FlatCards from './src/components/FlatCards';
 // import Bottombar from './src/components/view/Bottombar';
 import Profile from './src/components/view/Profile';
+import CreateOptions from './src/components/view/CreateOptions';
 
 const App = () => {
   const images = [
@@ -23,8 +24,9 @@ const App = () => {
       {/* <Bottombar /> */}
       {/* <Text>Hello from Phone</Text> */}
       <View>
-        <Profile />
-        {/* <Test /> */}
+        {/* <Profile /> */}
+        {/* <CreateOptions /> */}
+        <Test />
       </View>
     </SafeAreaView>
   );

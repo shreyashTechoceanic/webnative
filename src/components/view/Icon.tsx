@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {View, ViewStyle} from 'react-native';
 import React from 'react';
 
 // interface IconTypes {
@@ -21,10 +21,11 @@ import React from 'react';
 
 interface IconTypes {
   image: React.ReactNode;
+  viewStyle?: ViewStyle;
 }
 
-const Icon = ({image}: IconTypes) => {
-  return <View>{image}</View>;
+const Icon = ({image, viewStyle}: IconTypes) => {
+  return <View style={viewStyle}>{image}</View>;
 };
 
 export default Icon;

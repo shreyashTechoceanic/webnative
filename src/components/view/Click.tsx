@@ -9,18 +9,21 @@ import {
 import React from 'react';
 
 interface ClickTypes {
-  text: string;
+  textOn: string;
+  textOff: string;
   buttonStyle?: ViewStyle;
-  textStyle?: TextStyle;  
+  textStyle?: TextStyle;
+  onPress: () => void;
+  status: boolean;
 }
 
-const Click = ({text, buttonStyle, textStyle}: ClickTypes) => {
+const Click = (props: ClickTypes) => {
+  const {textOn, textOff, buttonStyle, textStyle, onPress, status} = props;
+
   return (
-    <View>
-      <TouchableOpacity style={buttonStyle}>
-        <Text style={textStyle}>{text}</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity style={buttonStyle} onPress={onPress}>
+      <Text style={textStyle}>{status ? textOn : textOff}</Text>
+    </TouchableOpacity>
   );
 };
 

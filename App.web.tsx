@@ -1,9 +1,25 @@
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import {View, SafeAreaView, StyleSheet} from 'react-native';
 import FlatCards from './src/components/FlatCards';
 import Bottombar from './src/components/view/Bottombar';
 import CreateClips from './src/components/view/CreateClips';
 import Profile from './src/components/view/Profile';
+import CreateClipsOptions from './src/components/view/CreateClipsOptions';
+import SetViewersOptions from './src/components/view/SetViewersOptions';
+import AddLocation from './src/components/view/AddLocation';
+import CreateOptions from './src/components/view/CreateOptions';
+import PostOptions from './src/components/view/PostOptions';
+import ShareOptions from './src/components/view/ShareOptions';
+import ReportContent from './src/components/view/ReportContent';
+import ReportContentOthers from './src/components/view/ReportContentOthers';
+import ViewReelOptions from './src/components/view/ViewReelOptions';
+import OtherProfileOptions from './src/components/view/OtherProfileOptions';
+import FriendsProfileOptions from './src/components/view/FriendsProfileOptions';
+import ProfileCreate from './src/components/view/ProfileCreate';
+import SignUp from './src/components/view/SignUp';
+import VerifyOtp from './src/components/view/VerifyOtp';
+import OTPVerified from './src/components/view/OTPVerified';
+import CountryCode from './src/components/view/CountryCode';
 
 const App = () => {
   const images = [
@@ -22,7 +38,23 @@ const App = () => {
       {/* <FlatCards imagesSrc={images} /> */}
       {/* <Bottombar /> */}
       {/* <CreateClips /> */}
-      <Profile />
+      {/* <Profile /> */}
+      {/* <CreateClipsOptions /> */}
+      {/* <SetViewersOptions /> */}
+      {/* <AddLocation /> */}
+      {/* <CreateOptions /> */}
+      {/* <PostOptions /> */}
+      {/* <ShareOptions /> */}
+      {/* <ReportContent /> */}
+      {/* <ReportContentOthers /> */}
+      {/* <ViewReelOptions /> */}
+      {/* <OtherProfileOptions /> */}
+      {/* <FriendsProfileOptions /> */}
+      {/* <ProfileCreate /> */}
+      {/* <SignUp /> */}
+      {/* <CountryCode /> */}
+      {/* <VerifyOtp /> */}
+      {/* <OTPVerified /> */}
     </SafeAreaView>
   );
 };
